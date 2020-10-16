@@ -1,0 +1,20 @@
+Package: tinylabels
+Title: Lightweight Variable Labels
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Marius",
+           family = "Barth",
+           role = c("aut", "cre"),
+           email = "marius.barth@uni-koeln.de",
+           comment = c(ORCID = "0000-0002-3421-6665"))
+Description: Easily add variable labels to vectors or columns of data frames.
+Imports:
+  stats
+Suggests:
+  testthat,
+  vctrs
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1

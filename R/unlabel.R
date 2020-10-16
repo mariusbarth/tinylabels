@@ -1,6 +1,9 @@
-
-
-
+#' Remove Labels from Objects
+#'
+#' Remove [variable_labels] from a labelled vector of from the columns of a data frame.
+#'
+#' @param x An \R object.
+#' @return Object as `x` but without variable labels.
 #' @export
 
 unlabel <- function(x) {
@@ -13,6 +16,7 @@ unlabel.default <- function(x) {
   attr(x, "label") <- NULL
   attr(x, "unit") <- NULL
   class(x) <- setdiff(class(x), "papaja_labelled")
+  if(is.atomic(x) && !is.factor(x)) x <- unclass(x)
   x
 }
 

@@ -5,7 +5,7 @@ Authors@R:
     person(given = "Marius",
            family = "Barth",
            role = c("aut", "cre"),
-           email = "marius.barth@uni-koeln.de",
+           email = "marius.barth.uni.koeln@gmail.com",
            comment = c(ORCID = "0000-0002-3421-6665"))
 Description: Add variable labels to vectors or columns of data frames.
 Imports:

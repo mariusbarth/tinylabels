@@ -16,7 +16,7 @@ unlabel.default <- function(x) {
   attr(x, "label") <- NULL
   attr(x, "unit") <- NULL
   class(x) <- setdiff(class(x), "papaja_labelled")
-  if(is.atomic(x) && !is.factor(x)) x <- unclass(x)
+  if(is.atomic(x) && !inherits(x, c("factor", "difftime", "POSIXct", "POSIXlt", "Date"))) x <- unclass(x)
   x
 }
 

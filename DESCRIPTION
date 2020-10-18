@@ -7,7 +7,7 @@ Authors@R:
            role = c("aut", "cre"),
            email = "marius.barth@uni-koeln.de",
            comment = c(ORCID = "0000-0002-3421-6665"))
-Description: Easily add variable labels to vectors or columns of data frames.
+Description: Add variable labels to vectors or columns of data frames.
 Imports:
   stats
 Suggests:

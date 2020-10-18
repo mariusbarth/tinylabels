@@ -41,10 +41,9 @@ print.papaja_labelled <- function(x, ...) {
 #' @export
 
 droplevels.papaja_labelled <- function(x, exclude = if(anyNA(levels(x))) NULL else NA, ...){
-  original_label <- variable_label(x)
-  x <- NextMethod("droplevels", x, exclude = exclude, ...)
-  variable_label(x) <- original_label
-  x
+  y <- NextMethod("droplevels", x, exclude = exclude, ...)
+  variable_label(y) <- variable_label(x)
+  y
 }
 
 

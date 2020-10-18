@@ -9,6 +9,9 @@
     s3_register("vctrs::vec_ptype2", "papaja_labelled.complex")
     s3_register("vctrs::vec_ptype2", "papaja_labelled.raw")
     s3_register("vctrs::vec_ptype2", "papaja_labelled.character")
+    s3_register("vctrs::vec_ptype2", "papaja_labelled.factor")
+    s3_register("vctrs::vec_ptype2", "papaja_labelled.ordered")
+
 
     s3_register("vctrs::vec_ptype2", "logical.papaja_labelled")
     s3_register("vctrs::vec_ptype2", "integer.papaja_labelled")
@@ -16,6 +19,26 @@
     s3_register("vctrs::vec_ptype2", "complex.papaja_labelled")
     s3_register("vctrs::vec_ptype2", "raw.papaja_labelled")
     s3_register("vctrs::vec_ptype2", "character.papaja_labelled")
+    s3_register("vctrs::vec_ptype2", "factor.papaja_labelled")
+    s3_register("vctrs::vec_ptype2", "ordered.papaja_labelled")
+
+    s3_register("vctrs::vec_cast", "papaja_labelled.logical")
+    s3_register("vctrs::vec_cast", "papaja_labelled.integer")
+    s3_register("vctrs::vec_cast", "papaja_labelled.double")
+    s3_register("vctrs::vec_cast", "papaja_labelled.complex")
+    s3_register("vctrs::vec_cast", "papaja_labelled.raw")
+    s3_register("vctrs::vec_cast", "papaja_labelled.character")
+    s3_register("vctrs::vec_cast", "papaja_labelled.factor")
+    s3_register("vctrs::vec_cast", "papaja_labelled.ordered")
+
+    s3_register("vctrs::vec_cast", "logical.papaja_labelled")
+    s3_register("vctrs::vec_cast", "integer.papaja_labelled")
+    s3_register("vctrs::vec_cast", "double.papaja_labelled")
+    s3_register("vctrs::vec_cast", "complex.papaja_labelled")
+    s3_register("vctrs::vec_cast", "raw.papaja_labelled")
+    s3_register("vctrs::vec_cast", "character.papaja_labelled")
+    s3_register("vctrs::vec_cast", "factor.papaja_labelled")
+    s3_register("vctrs::vec_cast", "ordered.papaja_labelled")
   }
 
   invisible()

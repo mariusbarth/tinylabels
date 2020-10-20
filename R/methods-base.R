@@ -26,7 +26,7 @@ print.papaja_labelled <- function(x, ...) {
   unit_defined <- !is.null(attr(x, "unit"))
 
   cat(
-    "Variable label     : ", encodeString(attr(x, "label"))
+    "Variable label     : ", encodeString(paste(attr(x, "label"), collapse = "/"))
     , if(unit_defined) {"\nUnit of measurement: "}
     , if(unit_defined) {encodeString(attr(x, "unit"))}
     , "\n"

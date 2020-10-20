@@ -22,6 +22,8 @@
     s3_register("vctrs::vec_ptype2", "factor.papaja_labelled")
     s3_register("vctrs::vec_ptype2", "ordered.papaja_labelled")
 
+    s3_register("vctrs::vec_cast", "papaja_labelled.papaja_labelled")
+
     s3_register("vctrs::vec_cast", "papaja_labelled.logical")
     s3_register("vctrs::vec_cast", "papaja_labelled.integer")
     s3_register("vctrs::vec_cast", "papaja_labelled.double")

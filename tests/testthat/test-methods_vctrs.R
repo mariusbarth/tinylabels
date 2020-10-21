@@ -1,7 +1,8 @@
-context("methods for vctrs (tidyverse support)")
+
+context("methods for generics from vctrs (i.e., tidyverse support)")
 
 test_that(
-  "Methods for vctrs package"
+  "methods for vec_ptype2() and vec_cast()"
   , {
     library(vctrs)
     obj1 <- obj2 <- obj3 <- 1:4

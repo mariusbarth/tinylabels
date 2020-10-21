@@ -18,7 +18,7 @@ assign_label.default <- function(x, value){
   structure(
     x
     , label = value
-    , class = c("papaja_labelled", setdiff(class(x), "papaja_labelled"))
+    , class = c("tiny_labelled", setdiff(class(x), "tiny_labelled"))
   )
 }
 
@@ -34,13 +34,17 @@ assign_label.data.frame <- function(x, value, ...){
   # a frequency table, you frequently have repeating column names):
 
   if(is.null(names(value))){
-    stop("The assigned label(s) must be passed as a named character vector.")
+    stop(
+      "The assigned variable label(s) must be passed as a named vector or list."
+      , call. = FALSE
+    )
   }
 
   if(!all(names(value) %in% colnames(x))){
     stop(
-      "Some requested columns could not be found in data.frame:\n"
-      , paste(setdiff(names(value), colnames(x)), collapse = ", ")
+      "While trying to set variable labels, some requested columns could not be found in data.frame:\n"
+      , paste(encodeString(setdiff(names(value), colnames(x)), quote = "'"), collapse = ", ")
+      , call. = FALSE
     )
   }
 

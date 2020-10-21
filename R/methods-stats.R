@@ -7,7 +7,7 @@
 #' @inheritParams stats::relevel
 #' @export
 
-relevel.papaja_labelled <- function(x, ref, ...){
+relevel.tiny_labelled <- function(x, ref, ...){
   y <- NextMethod()
   variable_label(y) <- variable_label(x)
   y

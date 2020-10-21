@@ -39,7 +39,8 @@ label_variables(x, ...)
 \item{...}{Further arguments that may be passed to methods.}
 
 \item{value}{Character. The variable label(s) to be assigned. If \code{variable_label} is applied to a single vector,
-this should be a length-one argument. If applied to a \code{data.frame}, \code{value} is required to be a \emph{named} vector.
+this should be a length-one argument. If applied to a \code{data.frame}, \code{value} is required to be a \emph{named} vector
+(or a named list).
 Check the examples for details.}
 }
 \description{

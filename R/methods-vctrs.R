@@ -4,7 +4,7 @@
 
 # vec_ptype2() -----------------------------------------------------------------
 
-vec_ptype2.papaja_labelled.papaja_labelled <- function(
+vec_ptype2.tiny_labelled.tiny_labelled <- function(
   x, y, ..., x_arg = "", y_arg = ""
 ) {
   z <- vctrs::vec_ptype2(x = unlabel(x), y = unlabel(y), ..., x_arg = x_arg, y_arg = y_arg)
@@ -24,7 +24,7 @@ vec_ptype2.papaja_labelled.papaja_labelled <- function(
 
 
 
-vec_ptype2.papaja_labelled.logical <- function(
+vec_ptype2.tiny_labelled.logical <- function(
   x, y, ..., x_arg = "", y_arg = ""
 ) {
   z <- vctrs::vec_ptype2(x = unlabel(x), y = y, ..., x_arg = x_arg, y_arg = y_arg)
@@ -32,17 +32,17 @@ vec_ptype2.papaja_labelled.logical <- function(
   z
 }
 
-vec_ptype2.papaja_labelled.integer   <- vec_ptype2.papaja_labelled.logical
-vec_ptype2.papaja_labelled.double    <- vec_ptype2.papaja_labelled.logical
-vec_ptype2.papaja_labelled.complex   <- vec_ptype2.papaja_labelled.logical
-vec_ptype2.papaja_labelled.raw       <- vec_ptype2.papaja_labelled.logical
-vec_ptype2.papaja_labelled.character <- vec_ptype2.papaja_labelled.logical
-vec_ptype2.papaja_labelled.factor    <- vec_ptype2.papaja_labelled.logical
-vec_ptype2.papaja_labelled.ordered   <- vec_ptype2.papaja_labelled.logical
+vec_ptype2.tiny_labelled.integer   <- vec_ptype2.tiny_labelled.logical
+vec_ptype2.tiny_labelled.double    <- vec_ptype2.tiny_labelled.logical
+vec_ptype2.tiny_labelled.complex   <- vec_ptype2.tiny_labelled.logical
+vec_ptype2.tiny_labelled.raw       <- vec_ptype2.tiny_labelled.logical
+vec_ptype2.tiny_labelled.character <- vec_ptype2.tiny_labelled.logical
+vec_ptype2.tiny_labelled.factor    <- vec_ptype2.tiny_labelled.logical
+vec_ptype2.tiny_labelled.ordered   <- vec_ptype2.tiny_labelled.logical
 
 
 
-vec_ptype2.logical.papaja_labelled <- function(
+vec_ptype2.logical.tiny_labelled <- function(
   x, y, ..., x_arg = "", y_arg = ""
 ) {
   z <- vctrs::vec_ptype2(x = x, y = unlabel(y), ..., x_arg = x_arg, y_arg = y_arg)
@@ -50,19 +50,19 @@ vec_ptype2.logical.papaja_labelled <- function(
   z
 }
 
-vec_ptype2.integer.papaja_labelled   <- vec_ptype2.logical.papaja_labelled
-vec_ptype2.double.papaja_labelled    <- vec_ptype2.logical.papaja_labelled
-vec_ptype2.complex.papaja_labelled   <- vec_ptype2.logical.papaja_labelled
-vec_ptype2.raw.papaja_labelled       <- vec_ptype2.logical.papaja_labelled
-vec_ptype2.character.papaja_labelled <- vec_ptype2.logical.papaja_labelled
-vec_ptype2.factor.papaja_labelled    <- vec_ptype2.logical.papaja_labelled
-vec_ptype2.ordered.papaja_labelled   <- vec_ptype2.logical.papaja_labelled
+vec_ptype2.integer.tiny_labelled   <- vec_ptype2.logical.tiny_labelled
+vec_ptype2.double.tiny_labelled    <- vec_ptype2.logical.tiny_labelled
+vec_ptype2.complex.tiny_labelled   <- vec_ptype2.logical.tiny_labelled
+vec_ptype2.raw.tiny_labelled       <- vec_ptype2.logical.tiny_labelled
+vec_ptype2.character.tiny_labelled <- vec_ptype2.logical.tiny_labelled
+vec_ptype2.factor.tiny_labelled    <- vec_ptype2.logical.tiny_labelled
+vec_ptype2.ordered.tiny_labelled   <- vec_ptype2.logical.tiny_labelled
 
 
 
 # vec_cast() -------------------------------------------------------------------
 
-vec_cast.papaja_labelled.papaja_labelled <- function(x, to, ...) {
+vec_cast.tiny_labelled.tiny_labelled <- function(x, to, ...) {
   y <- vctrs::vec_cast(x = x, to = unlabel(to), ...)
   variable_label(y) <- variable_label(to)
   y
@@ -70,30 +70,30 @@ vec_cast.papaja_labelled.papaja_labelled <- function(x, to, ...) {
 
 
 
-vec_cast.papaja_labelled.logical <- function(x, to, ...) {
+vec_cast.tiny_labelled.logical <- function(x, to, ...) {
   y <- vctrs::vec_cast(x = x, to = unlabel(to), ...)
   variable_label(y) <- variable_label(to)
   y
 }
 
-vec_cast.papaja_labelled.integer    <- vec_cast.papaja_labelled.logical
-vec_cast.papaja_labelled.double     <- vec_cast.papaja_labelled.logical
-vec_cast.papaja_labelled.raw        <- vec_cast.papaja_labelled.logical
-vec_cast.papaja_labelled.complex    <- vec_cast.papaja_labelled.logical
-vec_cast.papaja_labelled.character  <- vec_cast.papaja_labelled.logical
-vec_cast.papaja_labelled.factor     <- vec_cast.papaja_labelled.logical
-vec_cast.papaja_labelled.ordered    <- vec_cast.papaja_labelled.logical
+vec_cast.tiny_labelled.integer    <- vec_cast.tiny_labelled.logical
+vec_cast.tiny_labelled.double     <- vec_cast.tiny_labelled.logical
+vec_cast.tiny_labelled.raw        <- vec_cast.tiny_labelled.logical
+vec_cast.tiny_labelled.complex    <- vec_cast.tiny_labelled.logical
+vec_cast.tiny_labelled.character  <- vec_cast.tiny_labelled.logical
+vec_cast.tiny_labelled.factor     <- vec_cast.tiny_labelled.logical
+vec_cast.tiny_labelled.ordered    <- vec_cast.tiny_labelled.logical
 
 
 
-vec_cast.logical.papaja_labelled <- function(x, to, ...) {
+vec_cast.logical.tiny_labelled <- function(x, to, ...) {
   vctrs::vec_cast(x = unlabel(x), to = to, ...)
 }
 
-vec_cast.integer.papaja_labelled    <- vec_cast.logical.papaja_labelled
-vec_cast.double.papaja_labelled     <- vec_cast.logical.papaja_labelled
-vec_cast.raw.papaja_labelled        <- vec_cast.logical.papaja_labelled
-vec_cast.complex.papaja_labelled    <- vec_cast.logical.papaja_labelled
-vec_cast.character.papaja_labelled  <- vec_cast.logical.papaja_labelled
-vec_cast.factor.papaja_labelled     <- vec_cast.logical.papaja_labelled
-vec_cast.ordered.papaja_labelled    <- vec_cast.logical.papaja_labelled
+vec_cast.integer.tiny_labelled    <- vec_cast.logical.tiny_labelled
+vec_cast.double.tiny_labelled     <- vec_cast.logical.tiny_labelled
+vec_cast.raw.tiny_labelled        <- vec_cast.logical.tiny_labelled
+vec_cast.complex.tiny_labelled    <- vec_cast.logical.tiny_labelled
+vec_cast.character.tiny_labelled  <- vec_cast.logical.tiny_labelled
+vec_cast.factor.tiny_labelled     <- vec_cast.logical.tiny_labelled
+vec_cast.ordered.tiny_labelled    <- vec_cast.logical.tiny_labelled

@@ -2,7 +2,7 @@
 context(context("methods for generics from base"))
 
 test_that(
-  "droplevels.papaja_labelled-method"
+  "droplevels.tiny_labelled-method"
   , {
     # only check consistency, as base behavior has changed recently
     x <- factor(letters[1:4], levels = letters[1:10])
@@ -21,7 +21,7 @@ test_that(
 )
 
 test_that(
-  "[.papaja_labelled-method, [[.papaja_labelled-method"
+  "[.tiny_labelled-method, [[.tiny_labelled-method"
   , {
     x <- factor(letters[1:4], levels = letters[1:10])
     variable_label(x) <- "Test me!"
@@ -33,7 +33,7 @@ test_that(
       , expected = structure(
         1:3
         , .Label = letters[1:10]
-        , class = c("papaja_labelled", "factor")
+        , class = c("tiny_labelled", "factor")
         , label = "Test me!"
       )
     )
@@ -43,13 +43,13 @@ test_that(
       , expected = structure(
         2L
         , .Label = letters[1:10]
-        , class = c("papaja_labelled", "factor")
+        , class = c("tiny_labelled", "factor")
         , label = "Test me!"
       )
     )
 
     expect_identical(variable_label(y), "Test me!")
-    expect_identical(class(y), c("papaja_labelled", "factor"))
+    expect_identical(class(y), c("tiny_labelled", "factor"))
     expect_identical(levels(y), letters[1:10])
   }
 )
@@ -57,7 +57,7 @@ test_that(
 
 
 test_that(
-  "rep.papaja_labelled-method"
+  "rep.tiny_labelled-method"
   , {
     o1 <- 1:3
     variable_label(o1) <- "Test me!"
@@ -75,7 +75,7 @@ test_that(
 
 
 test_that(
-  "print.papaja_labelled-method"
+  "print.tiny_labelled-method"
   , {
     labelled_vector <- 1:4
     variable_label(labelled_vector) <- "Test label"

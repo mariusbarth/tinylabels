@@ -11,7 +11,7 @@ test_that(
       , expected = structure(
         1:4
         , label = "label_1"
-        , class = c("papaja_labelled", "integer")
+        , class = c("tiny_labelled", "integer")
       )
     )
   }
@@ -27,12 +27,12 @@ test_that(
 
     expect_error(
       variable_label(object) <- c("not_in_data" = "test")
-      , "Some requested columns could not be found in data.frame:\nnot_in_data"
+      , "While trying to set variable labels, some requested columns could not be found in data.frame:\n'not_in_data'"
       , fixed = TRUE
     )
     expect_error(
       variable_label(object) <- "a"
-      , "The assigned label(s) must be passed as a named character vector."
+      , "The assigned variable label(s) must be passed as a named vector or list."
       , fixed = TRUE
     )
     variable_label(object) <- c("a" = "A beautiful test label.", c = "Deal with list columns")
@@ -44,13 +44,13 @@ test_that(
           a = structure(
             1:4
             , label = "A beautiful test label."
-            , class = c("papaja_labelled", "integer")
+            , class = c("tiny_labelled", "integer")
           )
           , b = 5:8
           , c = structure(
             list(1:2, 3:4, 5:6, 7:8)
             , label = "Deal with list columns"
-            , class = c("papaja_labelled", "list")
+            , class = c("tiny_labelled", "list")
           )
         )
         , row.names = c(NA, -4L)
@@ -71,17 +71,17 @@ test_that(
           a = structure(
             1:4
             , label = "A different, but equally beautiful, test label."
-            , class = c("papaja_labelled", "integer")
+            , class = c("tiny_labelled", "integer")
           )
           , b = structure(
             5:8
             , label = "A mediocre reinterpretation of the a's label."
-            , class = c("papaja_labelled", "integer")
+            , class = c("tiny_labelled", "integer")
           )
           , c = structure(
             list(1:2, 3:4, 5:6, 7:8)
             , label = "Deal with list columns"
-            , class = c("papaja_labelled", "list")
+            , class = c("tiny_labelled", "list")
           )
         )
         , row.names = c(NA, -4L)
@@ -95,10 +95,10 @@ test_that(
 context("variable_label() extraction methods")
 
 test_that(
-  "variable_label.papaja_labelled-method"
+  "variable_label.tiny_labelled-method"
   , {
     object <- 1:10
-    class(object) <- c("papaja_labelled", "integer")
+    class(object) <- c("tiny_labelled", "integer")
     attr(object, "label") <- "label1"
 
     expect_identical(

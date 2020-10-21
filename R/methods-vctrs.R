@@ -8,7 +8,17 @@ vec_ptype2.papaja_labelled.papaja_labelled <- function(
   x, y, ..., x_arg = "", y_arg = ""
 ) {
   z <- vctrs::vec_ptype2(x = unlabel(x), y = unlabel(y), ..., x_arg = x_arg, y_arg = y_arg)
-  variable_label(z) <- unique(c(variable_label(x), variable_label(y)))
+  if(!identical(variable_label(x), variable_label(y))) {
+    warning(
+      "While combining two vectors, variable label '"
+      , encodeString(variable_label(y))
+      , "' was dropped and variable label '"
+      , encodeString(variable_label(x))
+      , "' was retained."
+      # , call. = FALSE
+    )
+  }
+  variable_label(z) <- variable_label(x)
   z
 }
 
@@ -22,20 +32,19 @@ vec_ptype2.papaja_labelled.logical <- function(
   z
 }
 
-vec_ptype2.papaja_labelled.integer <- vec_ptype2.papaja_labelled.logical
-vec_ptype2.papaja_labelled.double <- vec_ptype2.papaja_labelled.logical
-vec_ptype2.papaja_labelled.complex <- vec_ptype2.papaja_labelled.logical
-vec_ptype2.papaja_labelled.raw <- vec_ptype2.papaja_labelled.logical
+vec_ptype2.papaja_labelled.integer   <- vec_ptype2.papaja_labelled.logical
+vec_ptype2.papaja_labelled.double    <- vec_ptype2.papaja_labelled.logical
+vec_ptype2.papaja_labelled.complex   <- vec_ptype2.papaja_labelled.logical
+vec_ptype2.papaja_labelled.raw       <- vec_ptype2.papaja_labelled.logical
 vec_ptype2.papaja_labelled.character <- vec_ptype2.papaja_labelled.logical
-vec_ptype2.papaja_labelled.factor <- vec_ptype2.papaja_labelled.logical
-vec_ptype2.papaja_labelled.ordered <- vec_ptype2.papaja_labelled.logical
+vec_ptype2.papaja_labelled.factor    <- vec_ptype2.papaja_labelled.logical
+vec_ptype2.papaja_labelled.ordered   <- vec_ptype2.papaja_labelled.logical
 
 
 
 vec_ptype2.logical.papaja_labelled <- function(
   x, y, ..., x_arg = "", y_arg = ""
 ) {
-  # warning("Variable labels were dropped because 'vec_ptype2()' was called internally.", call. = FALSE)
   z <- vctrs::vec_ptype2(x = x, y = unlabel(y), ..., x_arg = x_arg, y_arg = y_arg)
   variable_label(z) <- variable_label(y)
   z

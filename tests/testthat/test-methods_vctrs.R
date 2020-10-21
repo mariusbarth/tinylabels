@@ -9,7 +9,7 @@ test_that(
     variable_label(obj2) <- "b"
 
     combined_prototype <- integer(0L)
-    variable_label(combined_prototype) <- c("a", "b")
+    variable_label(combined_prototype) <- c("a")
 
     labelled_integer <- integer(0L)
     labelled_double  <- double(0L)
@@ -19,7 +19,10 @@ test_that(
     variable_label(labelled_complex) <- "a"
 
     # Both labelled:
-    expect_identical(vec_ptype2(obj1, obj2), combined_prototype) # c("a", "b")
+    expect_warning(
+      expect_identical(vec_ptype2(obj1, obj2), combined_prototype) # "a"
+      , regexp = "While combining two vectors, variable label 'b' was dropped and variable label 'a' was retained."
+    )
     expect_identical(vec_ptype2(obj1, obj1), labelled_integer)   # "a"
 
     expect_identical(vec_ptype2(obj1, TRUE), labelled_integer)

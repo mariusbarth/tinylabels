@@ -10,8 +10,8 @@ unlabel(x)
 \item{x}{An \R object.}
 }
 \value{
-Object as \code{x} but without variable labels.
+Object as \code{x} but without variable labels and with class \code{tiny_labelled} removed.
 }
 \description{
-Remove \link{variable_labels} from a labelled vector of from the columns of a data frame.
+Remove \link{variable_labels} from a labelled vector or from the columns of a data frame.
 }

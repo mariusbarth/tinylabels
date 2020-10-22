@@ -21,9 +21,9 @@
 \arguments{
 \item{x}{Object to be coerced}
 
-\item{keep_label}{Logical indicating whether the variable labels should be kept.}
+\item{keep_label}{Logical indicating whether the variable labels and class \code{tiny_labelled} should be kept.}
 
-\item{...}{Further arguments passed to or from methods}
+\item{...}{Further arguments passed to methods}
 }
 \description{
 Functions to convert labelled vectors to other representations.

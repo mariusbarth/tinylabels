@@ -1,9 +1,9 @@
 #' Remove Labels from Objects
 #'
-#' Remove [variable_labels] from a labelled vector of from the columns of a data frame.
+#' Remove [variable_labels] from a labelled vector or from the columns of a data frame.
 #'
 #' @param x An \R object.
-#' @return Object as `x` but without variable labels.
+#' @return Object as `x` but without variable labels and with class `tiny_labelled` removed.
 #' @export
 
 unlabel <- function(x) {

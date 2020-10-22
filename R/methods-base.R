@@ -64,8 +64,8 @@ rep.tiny_labelled <- function(x, ...){
 #' Functions to convert labelled vectors to other representations.
 #'
 #' @param x          Object to be coerced
-#' @param keep_label Logical indicating whether the variable labels should be kept.
-#' @param ...        Further arguments passed to or from methods
+#' @param keep_label Logical indicating whether the variable labels and class `tiny_labelled` should be kept.
+#' @param ...        Further arguments passed to methods
 #'
 #' @rdname coerce-tiny_labelled
 #' @method as.character tiny_labelled

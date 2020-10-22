@@ -58,6 +58,7 @@ rep.tiny_labelled <- function(x, ...){
 
 
 
+
 #' Conversion of Labelled Vectors
 #'
 #' Functions to convert labelled vectors to other representations.
@@ -65,6 +66,8 @@ rep.tiny_labelled <- function(x, ...){
 #' @param x          Object to be coerced
 #' @param keep_label Logical indicating whether the variable labels should be kept.
 #' @param ...        Further arguments passed to or from methods
+#'
+#' @rdname coerce-tiny_labelled
 #' @method as.character tiny_labelled
 #' @export
 
@@ -73,3 +76,46 @@ as.character.tiny_labelled <- function(x, keep_label = TRUE, ...) {
   if (keep_label) variable_label(y) <- variable_label(x)
   y
 }
+
+
+#' @rdname coerce-tiny_labelled
+#' @method as.logical tiny_labelled
+#' @export
+
+as.logical.tiny_labelled <- function(x, keep_label = TRUE, ...) {
+  y <- NextMethod("as.logical", x, ...)
+  if (keep_label) variable_label(y) <- variable_label(x)
+  y
+}
+
+#' @rdname coerce-tiny_labelled
+#' @method as.integer tiny_labelled
+#' @export
+
+as.integer.tiny_labelled <- function(x, keep_label = TRUE, ...) {
+  y <- NextMethod("as.integer", x, ...)
+  if (keep_label) variable_label(y) <- variable_label(x)
+  y
+}
+
+#' @rdname coerce-tiny_labelled
+#' @method as.double tiny_labelled
+#' @export
+
+as.double.tiny_labelled <- function(x, keep_label = TRUE, ...) {
+  y <- NextMethod("as.double", x, ...)
+  if (keep_label) variable_label(y) <- variable_label(x)
+  y
+}
+
+#' @rdname coerce-tiny_labelled
+#' @method as.complex tiny_labelled
+#' @export
+
+as.complex.tiny_labelled <- function(x, keep_label = TRUE, ...) {
+  y <- NextMethod("as.complex", x, ...)
+  if (keep_label) variable_label(y) <- variable_label(x)
+  y
+}
+
+

@@ -36,6 +36,32 @@ test_that(
     expect_identical(vec_ptype2(integer(1), obj1), labelled_integer)
     expect_identical(vec_ptype2(double(1) , obj1), labelled_double)
     expect_identical(vec_ptype2(complex(1), obj1), labelled_complex)
+
+    # logical to labelled
+    expect_identical(
+      vec_cast(x = TRUE, vec_ptype2(obj1, TRUE))
+      , obj1[1]
+    )
+    # labelled to same labelled
+    expect_identical(
+      vec_cast(x = obj1, obj1[FALSE])
+      , obj1
+    )
+
+    # labelled to other labelled
+    expect_warning(
+      expect_identical(
+        vec_cast(x = obj1, vec_ptype2(obj2, obj1))
+        , obj2
+      )
+      , regexp = "While combining two vectors, variable label 'a' was dropped and variable label 'b' was retained."
+    )
+
+    # labelled to logical
+    expect_identical(
+      vec_cast(obj1, double(0L))
+      , as.double(1:4)
+    )
   }
 )
 

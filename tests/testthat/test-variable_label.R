@@ -14,10 +14,13 @@ test_that(
         , class = c("tiny_labelled", "integer")
       )
     )
+
+    expect_error(
+      tinylabels:::assign_label.default(x = 1:4)
+      , regexp = "Parameter 'value' must not be NULL."
+    )
   }
 )
-
-
 
 test_that(
   "variable_label<-.data.frame"
@@ -104,6 +107,25 @@ test_that(
     expect_identical(
       object = variable_label(object)
       , expected = "label1"
+    )
+  }
+)
+
+test_that(
+  "variable_label.data.frame-method"
+  , {
+    x <- npk
+    variable_label(x) <- list(N = "Nitrogen", P = "Phosphate", K = expression(italic(K)))
+
+    expect_identical(
+      variable_label(x)
+      , list(
+        block   = NULL
+        , N     = "Nitrogen"
+        , P     = "Phosphate"
+        , K     = expression(italic(K))
+        , yield = NULL
+      )
     )
   }
 )

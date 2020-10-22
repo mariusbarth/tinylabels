@@ -1,0 +1,101 @@
+---
+title: "Introduction to Tiny Variable Labels"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to Tiny Variable Labels}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(tinylabels)
+```
+
+# Philosophy
+
+- lightweight
+    - no imports, good choice for package developers
+- minimum side effects with existing functions
+    - haven
+    - Hmisc
+- Useful error and warning messages
+
+# Basic Usage
+
+```{r}
+x <- rnorm(6)
+variable_label(x) <- "Values randomly drawn from a standard-normal distribution"
+x
+```
+```{r}
+# Extract the variable label from a vector (e.g., a numeric vector)
+variable_label(x)
+```
+
+
+It is also possible to assign variable labels to (all or a subset of) the columns of a data frame.
+For instance, consider the built-in data set `npk`:
+
+```{r}
+# View original data set ----
+head(npk)
+```
+
+
+
+```{r}
+# Assign labels to the built-in data set 'npk' ----
+variable_label(npk) <- c(
+  N = "Nitrogen"
+  , P = "Phosphate"
+  , yield = "Pea yield"
+)
+
+# Extract the variable labels ----
+variable_label(npk)
+```
+The return value of `variable_label()` is a named list, where each list element corresponds to a column of a data frame.
+
+To assign labels to the columns of a data frame, the right-hand side of the assignment has to be a **named** vector or list.
+When trying to set columns that are not present in the data frame, a meaningful error  message is thrown:
+
+```{r error = TRUE}
+variable_label(npk) <- c(wrong_column_name = "A supposedly terrific label")
+```
+
+If you want to remove labels (and the corresponding S3 class) from a vector or all columns of a data frame, you may use function `unlabel`:
+
+```{r}
+# Return as a simple factor ----
+unlabel(npk$N)
+
+# Remove all labels (and class 'tiny_labelled') from all columns ----
+npk <- unlabel(npk)
+head(npk)
+```
+
+
+
+# Supporting the *tidyverse*
+
+```{r}
+data_1 <- data_2 <- data.frame(
+  x = rnorm(10)
+  , y = rnorm(10)
+)
+
+variable_label(data_1) <- c(x = "Label for x", y = "Label for y")
+variable_label(data_2) <- c(x = "Label for x", y = "Another label for y")
+
+library(dplyr)
+combined_data <- bind_rows(data_1, data_2)
+variable_label(combined_data)
+```
+

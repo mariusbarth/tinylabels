@@ -13,7 +13,7 @@ assign_label <- function(x, value, ...){
 
 assign_label.default <- function(x, value){
 
-  if(missing(value) || is.null(value)) stop("Parameter 'value' must not be NULL.")
+  if(missing(value)) stop("Parameter 'value' must not be NULL.")
 
   structure(
     x

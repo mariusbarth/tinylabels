@@ -94,3 +94,90 @@ test_that(
     )
   }
 )
+
+test_that(
+  "Coercion of tiny_labelled"
+  , {
+    labelled_vector <- 0:4
+    variable_label(labelled_vector) <- "Test label"
+
+    # as.logical() ----
+    expect_identical(
+      as.logical(labelled_vector)
+      , structure(
+        as.logical(0:4)
+        , label = "Test label"
+        , class = c("tiny_labelled", "logical")
+      )
+    )
+    expect_identical(
+      as.logical(labelled_vector, keep_label = FALSE)
+      , as.logical(0:4)
+    )
+
+    # as.integer() ----
+    expect_identical(
+      as.integer(labelled_vector)
+      , labelled_vector
+    )
+    expect_identical(
+      as.integer(labelled_vector, keep_label = FALSE)
+      , 0:4
+    )
+
+    # as.double() ----
+    expect_identical(
+      as.double(labelled_vector)
+      , structure(
+        as.double(0:4)
+        , label = "Test label"
+        , class = c("tiny_labelled", "numeric")
+      )
+    )
+    expect_identical(
+      as.double(labelled_vector, keep_label = FALSE)
+      , as.double(0:4)
+    )
+
+    # as.numeric() ----
+    expect_identical(
+      as.numeric(labelled_vector)
+      , as.double(labelled_vector)
+    )
+    expect_identical(
+      as.numeric(labelled_vector, keep_label = FALSE)
+      , as.double(labelled_vector, keep_label = FALSE)
+    )
+
+    # as.complex() ----
+    expect_identical(
+      as.complex(labelled_vector)
+      , structure(
+        as.complex(0:4)
+        , label = "Test label"
+        , class = c("tiny_labelled", "complex")
+      )
+    )
+    expect_identical(
+      as.complex(labelled_vector, keep_label = FALSE)
+      , as.complex(0:4)
+    )
+
+
+    # as.character() ----
+    expect_identical(
+      as.character(labelled_vector)
+      , structure(
+        as.character(0:4)
+        , label = "Test label"
+        , class = c("tiny_labelled", "character")
+      )
+    )
+    expect_identical(
+      as.character(labelled_vector, keep_label = FALSE)
+      , as.character(0:4)
+    )
+
+
+  }
+)

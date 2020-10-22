@@ -2,9 +2,21 @@
 % Please edit documentation in R/methods-base.R
 \name{as.character.tiny_labelled}
 \alias{as.character.tiny_labelled}
+\alias{as.logical.tiny_labelled}
+\alias{as.integer.tiny_labelled}
+\alias{as.double.tiny_labelled}
+\alias{as.complex.tiny_labelled}
 \title{Conversion of Labelled Vectors}
 \usage{
 \method{as.character}{tiny_labelled}(x, keep_label = TRUE, ...)
+
+\method{as.logical}{tiny_labelled}(x, keep_label = TRUE, ...)
+
+\method{as.integer}{tiny_labelled}(x, keep_label = TRUE, ...)
+
+\method{as.double}{tiny_labelled}(x, keep_label = TRUE, ...)
+
+\method{as.complex}{tiny_labelled}(x, keep_label = TRUE, ...)
 }
 \arguments{
 \item{x}{Object to be coerced}

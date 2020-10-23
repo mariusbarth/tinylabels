@@ -61,9 +61,9 @@ variable_label(npk) <- c(
 # Extract the variable labels ----
 variable_label(npk)
 ```
-The return value of `variable_label()` is a named list, where each list element corresponds to a column of a data frame.
+The return value of `variable_label()` is a named list, where each list element corresponds to a column of the data frame.
 
-To assign labels to the columns of a data frame, the right-hand side of the assignment has to be a **named** vector or list.
+To assign labels to the columns of a data frame, the right-hand side of the assignment has to be a **named** list or vector.
 When trying to set columns that are not present in the data frame, a meaningful error  message is thrown:
 
 ```{r error = TRUE}
@@ -85,6 +85,15 @@ head(npk)
 
 # Supporting the *tidyverse*
 
+While developing **tinylabels**,
+we aimed at supporting the *tidyverse* while also keeping the package's dependency graph as tiny as possible.
+Therefore, *tidyverse* packages are not imported.
+However, if you have already installed the **vctrs** package on your computer,
+**tinylabels** will dynamically register methods for `vctrs::vec_ptype2()` and `vctrs::vec_cast()` that are necessary to play well with the *tidyverse*.
+With these methods, the *tidyverse*'s data manipulation functions become rather explicit about how they handle labels.
+
+For instance, consider these two data frames:
+
 ```{r}
 data_1 <- data_2 <- data.frame(
   x = rnorm(10)
@@ -93,9 +102,27 @@ data_1 <- data_2 <- data.frame(
 
 variable_label(data_1) <- c(x = "Label for x", y = "Label for y")
 variable_label(data_2) <- c(x = "Label for x", y = "Another label for y")
+```
 
+If you try to combine two vectors that have different labels, only  the label of the first vector is retained --
+in addition, you will receive a meaningful warning message.
+Consider, for instance, `dplyr::bind_rows()` applied to two data frames with non-matching variable labels:
+
+```{r}
 library(dplyr)
 combined_data <- bind_rows(data_1, data_2)
 variable_label(combined_data)
+```
+
+We also wrote the function `label_variables()` that is intended to be used in conjunction with
+the tidyverse's pipe operator:
+
+```{r}
+test <- npk %>%
+  group_by(N, P) %>%
+  summarize(yield = mean(yield), .groups = "keep") %>%
+  label_variables(N = "Nitrogen", P = "Phosphate", yield = "Average yield")
+
+variable_labels(test)
 ```
 

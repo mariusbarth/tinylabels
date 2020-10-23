@@ -22,7 +22,7 @@ test_that(
     # Both labelled:
     expect_warning(
       expect_identical(vec_ptype2(obj1, obj2), combined_prototype) # "a"
-      , regexp = "While combining two vectors, variable label 'b' was dropped and variable label 'a' was retained."
+      , regexp = "While combining two labelled vectors, variable label 'b' was dropped and variable label 'a' was retained."
     )
     expect_identical(vec_ptype2(obj1, obj1), labelled_integer)   # "a"
 
@@ -54,7 +54,7 @@ test_that(
         vec_cast(x = obj1, vec_ptype2(obj2, obj1))
         , obj2
       )
-      , regexp = "While combining two vectors, variable label 'a' was dropped and variable label 'b' was retained."
+      , regexp = "While combining two labelled vectors, variable label 'a' was dropped and variable label 'b' was retained."
     )
 
     # labelled to logical

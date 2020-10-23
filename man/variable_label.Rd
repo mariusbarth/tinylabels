@@ -7,10 +7,8 @@
 \alias{variable_label<-}
 \alias{variable_label<-.default}
 \alias{variable_label<-.data.frame}
-\alias{label_variable}
 \alias{variable_labels}
 \alias{variable_labels<-}
-\alias{label_variables}
 \title{Assign or Extract Variable Labels}
 \usage{
 variable_label(x, ...)
@@ -25,13 +23,9 @@ variable_label(x) <- value
 
 \method{variable_label}{data.frame}(x) <- value
 
-label_variable(x, ...)
-
 variable_labels(x, ...)
 
 variable_labels(x) <- value
-
-label_variables(x, ...)
 }
 \arguments{
 \item{x}{Either a vector or a \code{data.frame}.}
@@ -65,4 +59,7 @@ the columns (i.e., vectors) of a \code{data.frame}.
     , K = expression(italic(K))
   )
   variable_labels(npk)                      # Extract
+}
+\seealso{
+See \code{\link[=label_variable]{label_variable()}} for an alternative that is compatible with the tidyverse's pipe operator.
 }

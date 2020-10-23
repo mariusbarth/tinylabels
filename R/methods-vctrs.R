@@ -10,7 +10,7 @@ vec_ptype2.tiny_labelled.tiny_labelled <- function(
   z <- vctrs::vec_ptype2(x = unlabel(x), y = unlabel(y), ..., x_arg = x_arg, y_arg = y_arg)
   if(!identical(variable_label(x), variable_label(y))) {
     warning(
-      "While combining two vectors, variable label '"
+      "While combining two labelled vectors, variable label '"
       , encodeString(variable_label(y))
       , "' was dropped and variable label '"
       , encodeString(variable_label(x))

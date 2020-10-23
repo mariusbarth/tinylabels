@@ -26,5 +26,6 @@
 \item{...}{Further arguments passed to methods}
 }
 \description{
-Functions to convert labelled vectors to other representations.
+Functions to convert labelled vectors to other types, possibly keeping the variable
+label and the class attribute \code{tiny_labelled}.
 }

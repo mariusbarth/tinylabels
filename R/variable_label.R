@@ -27,6 +27,7 @@
 #'     , K = expression(italic(K))
 #'   )
 #'   variable_labels(npk)                      # Extract
+#' @seealso See [label_variable()] for an alternative that is compatible with the tidyverse's pipe operator.
 #' @rdname variable_label
 #' @export
 
@@ -85,14 +86,23 @@ variable_label.data.frame <- function(x, ...){
 }
 
 
-# A pipable alternative --------------------------------------------------------
-
-#' @rdname variable_label
+#' Label Variables Using Pipes
+#'
+#' `label_variable()` can be used to assign variable labels within a workflow
+#' using the tidyverse's pipe operator.
+#'
+#' @param ... Variable label(s) to be assigned. For data frames, these have to be name-value pairs,
+#'   see example.
+#' @inheritParams variable_label
+#' @examples
+#'   library(dplyr)
+#'   test <- npk %>%
+#'     label_variable(N = "Test", P = "Phosphate")
+#'   variable_label(test)
 #' @export
 
 label_variable <- function(x, ...){
-  ellipsis <- unlist(list(...))
-  assign_label.data.frame(x, value = ellipsis)
+  assign_label(x, value = list(...))
 }
 
 # ------------------------------------------------------------------------------
@@ -108,7 +118,7 @@ label_variable <- function(x, ...){
 
 `variable_labels<-` <- `variable_label<-`
 
-#' @rdname variable_label
+#' @rdname label_variable
 #' @export
 
 "label_variables" <- label_variable

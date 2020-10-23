@@ -47,7 +47,8 @@
 }
 
 
-# from the vctrs package:
+# This function is taken from the vctrs package,
+# which is subject to the MIT license
 #' @keywords internal
 
 s3_register <- function(generic, class, method = NULL) {

@@ -57,7 +57,7 @@ For instance, consider the built-in data set `npk`:
 
 ```{r}
 # View original data set ----
-head(npk)
+str(npk)
 ```
 
 ```{r}
@@ -68,8 +68,8 @@ variable_label(npk) <- c(
   , yield = "Pea yield"
 )
 
-# Extract the variable labels ----
-variable_label(npk)
+# View the altered data set ----
+str(npk)
 ```
 The return value of `variable_label()` is a named list, where each list element corresponds to a column of the data frame.
 
@@ -88,7 +88,7 @@ unlabel(npk$N)
 
 # Remove all labels (and class 'tiny_labelled') from all columns ----
 npk <- unlabel(npk)
-head(npk)
+str(npk)
 ```
 
 

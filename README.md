@@ -2,7 +2,10 @@
 # Lightweight Variable Labels with tinylabels
 
 <!-- badges: start -->
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![CRAN status](https://www.r-pkg.org/badges/version/tinylabels)](https://CRAN.R-project.org/package=tinylabels)
 [![R build status](https://github.com/mariusbarth/tinylabels/workflows/R-CMD-check/badge.svg)](https://github.com/mariusbarth/tinylabels/actions)
+
 <!-- badges: end -->
 
 Variable labels are useful in many data-analysis contexts, but R does not provide

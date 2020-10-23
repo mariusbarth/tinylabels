@@ -13,6 +13,7 @@ Imports:
   stats
 Suggests:
     testthat,
+    covr,
     vctrs,
     dplyr,
     knitr,

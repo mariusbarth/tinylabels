@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 
 Variable labels are useful in many data-analysis contexts, but R does not provide
 variable labels in its base distribution. Several R packages introduced (sometimes conflicting)
-implementations (e.g., **Hmisc**, **haven**, **sjLabelled**), but these packages come with extensive
+implementations (e.g., **Hmisc**, **haven**, **sjlabelled**), but these packages come with extensive
 dependencies.
 Following the philosophy of a *tiny* dependency graph (the [tinyverse](http://www.tinyverse.org) philosophy),
 **tinylabels** set out to provide functionality for variable labels without depending
@@ -71,16 +71,27 @@ variable_label(npk) <- c(
 # View the altered data set ----
 str(npk)
 ```
-The return value of `variable_label()` is a named list, where each list element corresponds to a column of the data frame.
+The labelled columns now have an attribute `label` that contains the variable label,
+and are now of class `tiny_labelled` that extend the simple vector classes (e.g., logical, integer, double, etc.)
 
-To assign labels to the columns of a data frame, the right-hand side of the assignment has to be a **named** list or vector.
+You can access the variable labels by using
+
+```{r}
+variable_labels(npk)
+```
+
+The return value of `variable_label()` applied to a data frame is a named list,
+where each list element corresponds to a column of the data frame.
+
+For data frames, the right-hand side of the assignment has to be a **named** list or vector.
 When trying to set columns that are not present in the data frame, a meaningful error  message is thrown:
 
 ```{r error = TRUE}
 variable_label(npk) <- c(wrong_column_name = "A supposedly terrific label")
 ```
 
-If you want to remove labels (and the corresponding S3 class) from a vector or all columns of a data frame, you may use function `unlabel`:
+If you want to remove labels (and the corresponding S3 class) from a vector *or all columns of a data frame*,
+you may use function `unlabel`:
 
 ```{r}
 # Return as a simple factor ----
@@ -95,14 +106,16 @@ str(npk)
 
 # Supporting the *tidyverse*
 
-While developing **tinylabels**,
+Developing **tinylabels**,
 we aimed at supporting the *tidyverse* while also keeping the package's dependency graph as tiny as possible.
-Therefore, *tidyverse* packages are not imported.
+For this reason, *tidyverse* packages are not imported.
 However, if you have already installed the **vctrs** package on your computer,
 **tinylabels** will dynamically register methods for `vctrs::vec_ptype2()` and `vctrs::vec_cast()` that are necessary to play well with the *tidyverse*.
 With these methods, the *tidyverse*'s data manipulation functions become rather explicit about how they handle labels.
 
-For instance, consider these two data frames:
+For instance, If you try to combine two vectors that have different labels,
+only  the label of the first vector is retained -- but in addition, you will receive a meaningful warning message.
+Consider, for instance, `dplyr::bind_rows()` applied to two data frames with non-matching variable labels:
 
 ```{r}
 data_1 <- data_2 <- data.frame(
@@ -114,18 +127,15 @@ variable_label(data_1) <- c(x = "Label for x", y = "Label for y")
 variable_label(data_2) <- c(x = "Label for x", y = "Another label for y")
 ```
 
-If you try to combine two vectors that have different labels, only  the label of the first vector is retained --
-in addition, you will receive a meaningful warning message.
-Consider, for instance, `dplyr::bind_rows()` applied to two data frames with non-matching variable labels:
-
 ```{r}
 library(dplyr)
 combined_data <- bind_rows(data_1, data_2)
 variable_label(combined_data)
 ```
 
-We also wrote the function `label_variables()` that is intended to be used in conjunction with
-the tidyverse's pipe operator:
+Tu further support *tidyverse*-ish code,
+we also wrote the function `label_variables()` that is intended to be used in conjunction with
+the *tidyverse*'s pipe operator:
 
 ```{r}
 test <- npk %>%

@@ -1,13 +1,14 @@
 Package: tinylabels
 Title: Lightweight Variable Labels
-Version: 0.0.0.9000
+Version: 0.1.0
 Authors@R: 
     person(given = "Marius",
            family = "Barth",
            role = c("aut", "cre"),
            email = "marius.barth.uni.koeln@gmail.com",
            comment = c(ORCID = "0000-0002-3421-6665"))
-Description: Add variable labels to vectors or columns of data frames.
+Description: Assign, extract, or remove variable labels from R vectors.
+  Lightweight and free of non-base depedencies.
 Imports:
   stats
 Suggests:

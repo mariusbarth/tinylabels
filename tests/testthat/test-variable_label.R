@@ -16,12 +16,28 @@ test_that(
     )
 
     test2 <- test <- letters[1:3]
+
+    # Setting only a NULL label does not yet add class tiny_labelled
     variable_label(test) <- NULL
 
     expect_identical(
       test
       , test2
     )
+
+    # But overwriting a label with NULL does not remove the class
+    variable_label(test) <- "a"
+    variable_label(test) <- NULL
+    expect_identical(
+      test
+      , structure(
+        letters[1:3]
+        , label = NULL
+        , class = c("tiny_labelled", "character")
+      )
+    )
+    variable_label(test)
+
     expect_error(
       variable_label(test) <- 1:2
       , regexp = "Trying to set a variable label of length greater than one: 1, 2"

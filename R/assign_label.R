@@ -16,18 +16,16 @@ assign_label.default <- function(x, value){
   # First remove all nesting structures
   value <- unname(unlist(value, recursive = TRUE, use.names = FALSE))
 
-  # Do nothing if value is NULL
-  if(is.null(value)) return(x)
-
   # Labels may have length 0 or 1
   if(length(value) > 1L) stop(
     "Trying to set a variable label of length greater than one: "
     , paste(encodeString(value), collapse = ", ")
   )
 
-  # Faster than calling structure()
+  # If value = NULL, remove label attribute and do not add tiny_labelled class
   attr(x, "label") <- value
-  class(x) <- unique.default(c("tiny_labelled", class(x)))
+  if(!is.null(value)) class(x) <- unique.default(c("tiny_labelled", class(x)))
+
   x
 }
 

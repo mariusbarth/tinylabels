@@ -52,7 +52,15 @@ the columns (i.e., vectors) of a \code{data.frame}.
   variable_label(letters) <- "The alphabet" # Assign
   variable_label(letters)                   # Extract
 
-  # label some columns of a data frame
+  # label some columns of a data frame:
+  variable_labels(npk) <- c(                # Assign
+    N = "Nitrogen"
+    , P = "Phosphate"
+    , K = "Potassium"
+  )
+  variable_labels(npk)                      # Extract
+
+  # using a list on the right, character and expression can be mixed:
   variable_labels(npk) <- list(             # Assign
     N = "Nitrogen"
     , P = "Phosphate"

@@ -22,6 +22,6 @@ using the tidyverse's pipe operator.
 \examples{
   library(dplyr)
   test <- npk \%>\%
-    label_variable(N = "Test", P = "Phosphate")
+    label_variable(N = "Nitrogen", P = "Phosphate")
   variable_label(test)
 }

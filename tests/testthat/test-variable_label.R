@@ -15,9 +15,21 @@ test_that(
       )
     )
 
+    test2 <- test <- letters[1:3]
+    variable_label(test) <- NULL
+
+    expect_identical(
+      test
+      , test2
+    )
     expect_error(
-      tinylabels:::assign_label.default(x = 1:4)
-      , regexp = "Parameter 'value' must not be NULL."
+      variable_label(test) <- 1:2
+      , regexp = "Trying to set a variable label of length greater than one: 1, 2"
+    )
+    variable_label(test) <- list(b = "a")
+    expect_identical(
+      variable_label(test)
+      , "a"
     )
   }
 )
@@ -91,6 +103,14 @@ test_that(
         , class = "data.frame"
       )
     )
+
+  object <- npk
+  variable_label(object) <- c(
+    N = "Nitrogen"
+    , P = NULL
+  )
+  variable_label(object)
+
   }
 )
 

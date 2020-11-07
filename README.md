@@ -11,7 +11,7 @@
 
 Variable labels are useful in many data-analysis contexts, but R does not provide
 variable labels in its base distribution. Several R packages introduced (sometimes conflicting)
-implementations (e.g., **Hmisc**, **haven**, **sjLabelled**), but these packages come with extensive
+implementations (e.g., **Hmisc**, **haven**, **sjlabelled**), but these packages come with extensive
 dependencies.
 Following the philosophy of a *tiny* dependency graph (the [tinyverse](http://www.tinyverse.org) philosophy),
 **tinylabels** set out to provide functionality for variable labels without depending

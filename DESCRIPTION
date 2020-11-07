@@ -1,6 +1,7 @@
 Package: tinylabels
 Title: Lightweight Variable Labels
-Version: 0.1.0
+Version: 0.1.0.9000
+Date: 2020-11-07
 Authors@R: 
     person(given = "Marius",
            family = "Barth",
@@ -12,12 +13,12 @@ Description: Assign, extract, or remove variable labels from R vectors.
 Imports:
   stats
 Suggests:
-    testthat,
-    covr,
-    vctrs,
-    dplyr,
-    knitr,
-    rmarkdown
+  testthat,
+  covr,
+  vctrs,
+  dplyr,
+  knitr,
+  rmarkdown
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

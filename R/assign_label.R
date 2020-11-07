@@ -13,13 +13,22 @@ assign_label <- function(x, value, ...){
 
 assign_label.default <- function(x, value){
 
-  if(missing(value)) stop("Parameter 'value' must not be NULL.")
+  # First remove all nesting structures
+  value <- unname(unlist(value, recursive = TRUE, use.names = FALSE))
 
-  structure(
-    x
-    , label = value
-    , class = c("tiny_labelled", setdiff(class(x), "tiny_labelled"))
+  # Do nothing if value is NULL
+  if(is.null(value)) return(x)
+
+  # Labels may have length 0 or 1
+  if(length(value) > 1L) stop(
+    "Trying to set a variable label of length greater than one: "
+    , paste(encodeString(value), collapse = ", ")
   )
+
+  # Faster than calling structure()
+  attr(x, "label") <- value
+  class(x) <- unique.default(c("tiny_labelled", class(x)))
+  x
 }
 
 

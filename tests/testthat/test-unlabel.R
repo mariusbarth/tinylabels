@@ -17,7 +17,7 @@ test_that(
   "unlabel.data.frame()"
   , {
     x <- npk
-    variable_label(x) <- c(N = "Nitrogen", yield = "Yield", P = expression(italic(P)))
+    variable_label(x) <- list(N = "Nitrogen", yield = "Yield", P = expression(italic(P)))
 
     expect_identical(
       unlabel(x)

@@ -34,14 +34,14 @@ variable_labels(x) <- value
 
 \item{value}{Character. The variable label(s) to be assigned. If \code{variable_label()} is applied to a single vector,
 this should be a length-one argument. If applied to a \code{data.frame}, \code{value} is required to be a \emph{named} vector
-or a \emph{named} list.
+or a \emph{named} list. NULL elements of this name-value list are ignored.
 Check the examples for details.}
 }
 \value{
-For vectors, \code{variable_label} returns NULL or the variable label (typically of length one).
-For data frames, \code{variable_label} returns a named list where each column corresponds to a column of the data frame.
+For vectors, \code{variable_label()} returns NULL or the variable label (typically of length one).
+For data frames, \code{variable_label()} returns a named list where each column corresponds to a column of the data frame.
 
-The assignment methods \verb{variable_label<-} return the labelled object.
+The assignment methods \verb{variable_label()<-} return the labelled object.
 }
 \description{
 Assign or extract variable labels of a \code{vector} \emph{or}

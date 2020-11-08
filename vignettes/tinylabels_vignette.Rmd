@@ -14,8 +14,6 @@ knitr::opts_chunk$set(
 )
 ```
 
-# Abstract
-
 Variable labels are useful in many data-analysis contexts, but R does not provide
 variable labels in its base distribution. Several R packages introduced (sometimes conflicting)
 implementations (e.g., **Hmisc**, **haven**, **sjlabelled**), but these packages come with extensive
@@ -35,7 +33,8 @@ Function overview:
 - Remove labels and `tiny_labelled` class: `unlabel()`
 - Assign labels in a piped workflow: `label_variables()`
 
-# Basic Usage
+
+## Basic Usage
 
 Assign a variable label to a vector:
 
@@ -71,8 +70,8 @@ variable_label(npk) <- c(
 # View the altered data set ----
 str(npk)
 ```
-The labelled columns now have an attribute `label` that contains the variable label,
-and are now of class `tiny_labelled` that extend the simple vector classes (e.g., logical, integer, double, etc.)
+Each labelled column now has an attribute `label` that contains the respective variable label,
+and is now of class `tiny_labelled` that extends the simple vector classes (e.g., logical, integer, double, etc.)
 
 You can access the variable labels by using
 
@@ -82,6 +81,7 @@ variable_labels(npk)
 
 The return value of `variable_label()` applied to a data frame is a named list,
 where each list element corresponds to a column of the data frame.
+For columns that do not have a variable label, the corresponding list element is NULL.
 
 For data frames, the right-hand side of the assignment has to be a **named** list or vector.
 When trying to set columns that are not present in the data frame, a meaningful error  message is thrown:
@@ -104,7 +104,7 @@ str(npk)
 
 
 
-# Supporting the *tidyverse*
+## Supporting the *tidyverse*
 
 Developing **tinylabels**,
 we aimed at supporting the *tidyverse* while also keeping the package's dependency graph as tiny as possible.

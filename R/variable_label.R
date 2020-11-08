@@ -6,14 +6,14 @@
 #' @param x Either a vector or a `data.frame`.
 #' @param value Character. The variable label(s) to be assigned. If `variable_label()` is applied to a single vector,
 #' this should be a length-one argument. If applied to a `data.frame`, `value` is required to be a *named* vector
-#' or a *named* list.
+#' or a *named* list. NULL elements of this name-value list are ignored.
 #' Check the examples for details.
 #' @param ... Further arguments that may be passed to methods.
 #' @return
-#'   For vectors, `variable_label` returns NULL or the variable label (typically of length one).
-#'   For data frames, `variable_label` returns a named list where each column corresponds to a column of the data frame.
+#'   For vectors, `variable_label()` returns NULL or the variable label (typically of length one).
+#'   For data frames, `variable_label()` returns a named list where each column corresponds to a column of the data frame.
 #'
-#'   The assignment methods `variable_label<-` return the labelled object.
+#'   The assignment methods `variable_label()<-` return the labelled object.
 #'
 #' @examples
 #'   # label a single vector

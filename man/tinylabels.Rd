@@ -3,9 +3,9 @@
 \docType{package}
 \name{tinylabels}
 \alias{tinylabels}
-\title{Tiny Variable Labels}
+\title{Lightweight Variable Labels}
 \description{
-To learn more about tinylabels, take a look at the vignette: browseVignettes(package = "tinylabels")
+To learn more about tinylabels, take a look at the vignette: \code{browseVignettes(package = "tinylabels")}
 }
 \section{Maintainer}{
 

@@ -15,9 +15,8 @@
     - ubuntu 16.04 LTS, R 3.3
 
 ## R CMD check results
+Duration: 17.9s
 
 0 errors | 0 warnings | 0 notes
 
 R CMD check succeeded
-
-This is the first submission of package 'tinylabels' to CRAN.

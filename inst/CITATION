@@ -9,5 +9,6 @@ bibentry(
   , author = person("Marius", "Barth")
   , year = year
   , note = note
-  , url = meta$URL # "https://github.com/mariusbarth/tinylabels"
+  , url = meta$URL
 )
+

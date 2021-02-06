@@ -1,4 +1,4 @@
-# tinylabels 0.1.0.9000
+# tinylabels 0.2.0
 
 - Added a `NEWS.md` file to track changes to the package.
 - Input validation now ensures that variable labels are (1) atomic vectors (i.e.,

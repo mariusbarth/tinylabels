@@ -12,7 +12,7 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 status](https://www.r-pkg.org/badges/version/tinylabels)](https://CRAN.R-project.org/package=tinylabels)
 [![R build
 status](https://github.com/mariusbarth/tinylabels/workflows/R-CMD-check/badge.svg)](https://github.com/mariusbarth/tinylabels/actions)
-[![codecov](https://codecov.io/gh/mariusbarth/tinylabels/branch/main/graph/badge.svg?token=F8WZU5K3XY)](undefined)
+[![codecov](https://codecov.io/gh/mariusbarth/tinylabels/branch/main/graph/badge.svg?token=F8WZU5K3XY)](https://codecov.io/gh/mariusbarth/tinylabels)
 <!-- badges: end -->
 
 Variable labels are useful in many data-analysis contexts, but R does
@@ -32,10 +32,10 @@ well as for data analysts who care about dependencies.
 
 Function overview:
 
-  - Assign variable label: `variable_label()<-`
-  - Extract variable label: `variable_label()`
-  - Remove labels and `tiny_labelled` class: `unlabel()`
-  - Assign labels in a piped workflow: `label_variables()`
+-   Assign variable label: `variable_label()<-`
+-   Extract variable label: `variable_label()`
+-   Remove labels and `tiny_labelled` class: `unlabel()`
+-   Assign labels in a piped workflow: `label_variables()`
 
 ## Basic Usage
 
@@ -48,7 +48,7 @@ x <- rnorm(6)
 variable_label(x) <- "Values randomly drawn from a standard-normal distribution"
 x
 #> Variable label     : Values randomly drawn from a standard-normal distribution
-#> [1] -0.5286887 -1.1950736 -0.4783909  0.9061683  0.7108619 -0.1478586
+#> [1]  0.8979394  0.4185647 -0.6667468 -0.4762817  1.2991844  0.7439743
 ```
 
 ``` r
@@ -152,7 +152,7 @@ str(npk)
 #>  $ yield: num  49.5 62.8 46.8 57 59.8 58.5 55.5 56 62.8 55.8 ...
 ```
 
-# Supporting the *tidyverse*
+## Supporting the *tidyverse*
 
 Developing **tinylabels**, we aimed at supporting the *tidyverse* while
 also keeping the package’s dependency graph as tiny as possible. For

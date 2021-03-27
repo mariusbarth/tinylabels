@@ -9,7 +9,7 @@
 state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![CRAN
-status](https://www.r-pkg.org/badges/version/tinylabels)](https://CRAN.R-project.org/package=tinylabels)
+status](https://www.r-pkg.org/badges/version/tinylabels)](https://cran.r-project.org/package=tinylabels)
 [![R build
 status](https://github.com/mariusbarth/tinylabels/workflows/R-CMD-check/badge.svg)](https://github.com/mariusbarth/tinylabels/actions)
 [![codecov](https://codecov.io/gh/mariusbarth/tinylabels/branch/main/graph/badge.svg?token=F8WZU5K3XY)](https://codecov.io/gh/mariusbarth/tinylabels)
@@ -48,7 +48,7 @@ x <- rnorm(6)
 variable_label(x) <- "Values randomly drawn from a standard-normal distribution"
 x
 #> Variable label     : Values randomly drawn from a standard-normal distribution
-#> [1]  0.8979394  0.4185647 -0.6667468 -0.4762817  1.2991844  0.7439743
+#> [1] -1.0340533 -0.4618971  1.1801754 -0.1099567  0.9070625 -0.8360684
 ```
 
 ``` r

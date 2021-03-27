@@ -1,3 +1,7 @@
+# tinylabels 0.2.1
+
+- Removed `LazyData` from DESCRIPTION file
+
 # tinylabels 0.2.0
 
 - Added a `NEWS.md` file to track changes to the package.

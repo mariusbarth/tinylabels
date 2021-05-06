@@ -133,7 +133,7 @@ combined_data <- bind_rows(data_1, data_2)
 variable_label(combined_data)
 ```
 
-Tu further support *tidyverse*-ish code,
+To further support *tidyverse*-ish code,
 we also wrote the function `label_variables()` that is intended to be used in conjunction with
 the *tidyverse*'s pipe operator:
 

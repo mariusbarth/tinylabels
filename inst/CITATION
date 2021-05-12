@@ -1,14 +1,15 @@
 
 year <- sub("-.*", "", meta$Date)
-note <- sprintf("R package version %s", meta$Version)
+note <- paste0("R package version ", meta$Version)
+url  <- "https://cran.r-project.org/package=tinylabels"
 
 bibentry(
   bibtype = "Manual"
-  , textVersion = sprintf("Barth, M. (%s). tinylabels: Lightweight variable labels. %s. Retrieved from %s.", year, note, meta$URL)
+  , textVersion = sprintf("Barth, M. (%s). tinylabels: Lightweight variable labels. %s. Retrieved from %s.", year, note, url)
   , title = "{tinylabels}: Lightweight Variable Labels"
   , author = person("Marius", "Barth")
   , year = year
   , note = note
-  , url = meta$URL
+  , url = url
 )
 

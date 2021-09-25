@@ -11,7 +11,7 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 [![CRAN
 status](https://www.r-pkg.org/badges/version/tinylabels)](https://cran.r-project.org/package=tinylabels)
 [![R build
-status](https://github.com/mariusbarth/tinylabels/workflows/R-CMD-check/badge.svg)](https://github.com/mariusbarth/tinylabels/actions)
+status](https://github.com/mariusbarth/tinylabels/workflows/R-CMD-CHECK/badge.svg)](https://github.com/mariusbarth/tinylabels/actions)
 [![codecov](https://codecov.io/gh/mariusbarth/tinylabels/branch/main/graph/badge.svg?token=F8WZU5K3XY)](https://codecov.io/gh/mariusbarth/tinylabels)
 <!-- badges: end -->
 
@@ -48,7 +48,7 @@ x <- rnorm(6)
 variable_label(x) <- "Values randomly drawn from a standard-normal distribution"
 x
 #> Variable label     : Values randomly drawn from a standard-normal distribution
-#> [1] -1.0340533 -0.4618971  1.1801754 -0.1099567  0.9070625 -0.8360684
+#> [1]  0.3401170 -2.3342288  0.4908760 -1.3450353 -0.4482711 -0.6235084
 ```
 
 ``` r
@@ -140,7 +140,6 @@ vector *or all columns of a data frame*, you may use function `unlabel`:
 unlabel(npk$N)
 #>  [1] 0 1 0 1 1 1 0 0 0 1 1 0 1 1 0 0 1 0 1 0 1 1 0 0
 #> Levels: 0 1
-
 # Remove all labels (and class 'tiny_labelled') from all columns ----
 npk <- unlabel(npk)
 str(npk)
@@ -182,11 +181,11 @@ variable_label(data_2) <- c(x = "Label for x", y = "Another label for y")
 ``` r
 library(dplyr)
 #> 
-#> Attaching package: 'dplyr'
-#> The following objects are masked from 'package:stats':
+#> Attache Paket: 'dplyr'
+#> Die folgenden Objekte sind maskiert von 'package:stats':
 #> 
 #>     filter, lag
-#> The following objects are masked from 'package:base':
+#> Die folgenden Objekte sind maskiert von 'package:base':
 #> 
 #>     intersect, setdiff, setequal, union
 combined_data <- bind_rows(data_1, data_2)
@@ -201,7 +200,7 @@ variable_label(combined_data)
 #> [1] "Label for y"
 ```
 
-Tu further support *tidyverse*-ish code, we also wrote the function
+To further support *tidyverse*-ish code, we also wrote the function
 `label_variables()` that is intended to be used in conjunction with the
 *tidyverse*’s pipe operator:
 

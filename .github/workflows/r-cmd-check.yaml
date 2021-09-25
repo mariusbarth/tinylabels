@@ -1,6 +1,6 @@
 # Run CI for R using https://eddelbuettel.github.io/r-ci/
 
-name: ci
+name: R-CMD-CHECK
 
 on:
   push:
@@ -15,8 +15,10 @@ jobs:
     strategy:
       matrix:
         include:
-          - {os: macOS-latest}
-          - {os: ubuntu-latest}
+          - {os: macOS-latest,   r: release}
+          - {os: windows-latest, r: release}
+          - {os: ubuntu-latest,  r: devel}
+          - {os: ubuntu-latest,  r: release}
 
     runs-on: ${{ matrix.os }}
 

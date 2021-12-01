@@ -15,8 +15,12 @@ unlabel <- function(x) {
 unlabel.default <- function(x) {
   attr(x, "label") <- NULL
   attr(x, "unit") <- NULL
-  class(x) <- setdiff(class(x), "tiny_labelled")
-  if(is.atomic(x) && !inherits(x, c("factor", "difftime", "POSIXct", "POSIXlt", "Date"))) x <- unclass(x)
+
+  if(is.atomic(x) && !inherits(x, c("factor", "difftime", "POSIXct", "POSIXlt", "Date"))) {
+    x <- unclass(x)
+  } else {
+    class(x) <- setdiff(class(x), "tiny_labelled")
+  }
   x
 }
 
@@ -29,3 +33,4 @@ unlabel.data.frame <- function(x) {
   }
   x
 }
+

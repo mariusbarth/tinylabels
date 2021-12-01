@@ -119,4 +119,32 @@ as.complex.tiny_labelled <- function(x, keep_label = TRUE, ...) {
   y
 }
 
+#' @method Math tiny_labelled
+#' @export
 
+Math.tiny_labelled <- function(x) {
+  eval(call(name = .Generic, unlabel(x)))
+}
+
+#' @method Ops tiny_labelled
+#' @export
+
+Ops.tiny_labelled <- function(e1, e2) {
+  if(missing(e2)) return(eval(call(.Generic, unlabel(e1))))
+  eval(call(.Generic, e1 = unlabel(e1), e2 = unlabel(e2)))
+}
+
+#' @method Summary tiny_labelled
+#' @export
+
+Summary.tiny_labelled <- function(x, ..., na.rm = FALSE) {
+  eval(call(.Generic, x = unlabel(x), ..., na.rm = na.rm))
+}
+
+
+#' @method Complex tiny_labelled
+#' @export
+
+Complex.tiny_labelled <- function(z) {
+  eval(call(.Generic, unlabel(z)))
+}

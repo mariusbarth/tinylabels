@@ -17,8 +17,13 @@ jobs:
         include:
           - {os: macOS-latest,   r: release}
           - {os: windows-latest, r: release}
+          - {os: windows-latest, r: 4.0}
+          - {os: windows-latest, r: 3.6}
           - {os: ubuntu-latest,  r: devel}
           - {os: ubuntu-latest,  r: release}
+          - {os: ubuntu-latest,  r: 4.0}
+          - {os: ubuntu-latest,  r: 3.6}
+
 
     runs-on: ${{ matrix.os }}
 
@@ -36,3 +41,5 @@ jobs:
 
       - name: Test
         run: ./run.sh run_tests
+      - name: Coverage
+        run: ./run.sh coverage

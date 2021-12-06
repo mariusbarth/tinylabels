@@ -122,8 +122,8 @@ as.complex.tiny_labelled <- function(x, keep_label = TRUE, ...) {
 #' @method Math tiny_labelled
 #' @export
 
-Math.tiny_labelled <- function(x) {
-  eval(call(name = .Generic, unlabel(x)))
+Math.tiny_labelled <- function(x, ...) {
+  do.call(.Generic, list(x = unlabel(x), ...))
 }
 
 #' @method Ops tiny_labelled

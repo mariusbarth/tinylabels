@@ -138,7 +138,7 @@ Ops.tiny_labelled <- function(e1, e2) {
 #' @export
 
 Summary.tiny_labelled <- function(x, ..., na.rm = FALSE) {
-  eval(call(.Generic, x = unlabel(x), ..., na.rm = na.rm))
+  do.call(.Generic, list(x = unlabel(x), ..., na.rm = na.rm))
 }
 
 

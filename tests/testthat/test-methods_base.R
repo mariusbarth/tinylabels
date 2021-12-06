@@ -177,7 +177,42 @@ test_that(
       as.character(labelled_vector, keep_label = FALSE)
       , as.character(0:4)
     )
+  }
+)
 
+test_that(
+  "Arithmetic group generics"
+  , {
+    labelled_vector <- -1:4
+    variable_label(labelled_vector) <- "An integer vector"
+
+    # Math (x, ...)
+    expect_identical(
+      abs(labelled_vector)
+      , expected = abs(-1:4)
+    )
+    # Ops (e1, e2)
+    expect_identical(
+      labelled_vector/2
+      , expected = -1:4 / 2 # numeric!
+    )
+    # Ops (e1)
+    expect_identical(
+      -labelled_vector
+      , expected = 1:-4
+    )
+    # Summary(..., na.rm = FALSE)
+    expect_identical(
+      min(labelled_vector)
+      , -1L
+    )
+    # Complex(z)
+    labelled_complex <- as.complex(1:4)
+    variable_label(labelled_complex) <- "A complex-valued vector"
+    expect_identical(
+      Im(labelled_complex)
+      , expected = rep(0, 4)
+    )
 
   }
 )

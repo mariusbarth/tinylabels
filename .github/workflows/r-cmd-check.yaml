@@ -16,7 +16,6 @@ jobs:
       matrix:
         include:
           - {os: macOS-latest,   r: release}
-          - {os: macOS-latest,   r: 3.6}
           - {os: windows-latest, r: release}
           - {os: windows-latest, r: 3.6}
           - {os: ubuntu-latest,  r: devel}

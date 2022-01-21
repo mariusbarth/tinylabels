@@ -1,3 +1,9 @@
+
+# tinylabels 0.2.2
+
+- Added methods for group generics `Math`, `Ops`, `Summary`, and `Complex` from
+  the **base** package.
+
 # tinylabels 0.2.1
 
 - Removed `LazyData` from DESCRIPTION file

@@ -1,4 +1,6 @@
 
+#' @importFrom methods as
+
 methods::setClass(
   Class = "tiny_labelled"
   , contains = "vector"

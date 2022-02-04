@@ -177,5 +177,10 @@ test_that(
         , yield = NULL
       )
     )
+    expect_error(
+      variable_label(x) <- list(N = "a", N = "b")
+      , "Duplicated names for 'value'."
+      , fixed = TRUE
+    )
   }
 )

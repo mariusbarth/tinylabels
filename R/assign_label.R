@@ -47,6 +47,12 @@ assign_label.data.frame <- function(x, value, ...){
       , call. = FALSE
     )
   }
+  if(any(duplicated(names(value)))) {
+    stop(
+      "Cannot set variable labels: Duplicated names for 'value'."
+      , call. = FALSE
+    )
+  }
 
   if(!all(names(value) %in% colnames(x))){
     stop(

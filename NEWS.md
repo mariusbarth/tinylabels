@@ -1,8 +1,9 @@
 
-# upcoming release
+# tinylabels 0.2.3
 
 - Added `as()` methods to support the S4 class system.
-
+- For the data-frame method, if names of to-be-assigned values (i.e., keys) are
+  duplicated, an informative error message is returned.
 
 # tinylabels 0.2.2
 

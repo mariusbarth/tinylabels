@@ -1,7 +1,7 @@
 Package: tinylabels
 Title: Lightweight Variable Labels
 Version: 0.2.3
-Date: 2022-02-04
+Date: 2022-02-06
 Authors@R: 
     person(given = "Marius",
            family = "Barth",

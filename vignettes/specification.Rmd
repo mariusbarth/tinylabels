@@ -1,0 +1,96 @@
+---
+title: "Specification of the 'tiny_labelled' class"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Specification of the 'tiny_labelled' class}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(tinylabels)
+```
+
+# Setting a variable label
+
+```{r}
+x <- 1:4
+variable_label(x) <- "A variable label"
+```
+
+# Extracting and replacing parts of an object
+
+If elements of a vector are extracted, the new vector retains label and class `tiny_labelled`.
+
+```{r}
+x[1:2]
+str(x)
+x[1:2] <- 5:6
+str(x)
+```
+
+# Math, Ops, Summary, Complex
+
+If a vector is modified (e.g., via mathematical operations), label and `tiny_labelled` class are removed.
+
+```{r}
+str(exp(x))
+```
+
+```{r}
+str(x + 1)
+```
+
+```{r}
+str(min(x))
+```
+
+```{r}
+str(Re(x))
+```
+
+# Coercion
+
+Vectors of class `tiny_labelled` keep label and class if they are modified via `as.character()`, `as.numeric()`, etc.
+
+```{r}
+as.character(x)
+```
+
+If `keep_label = FALSE`, label and class are removed.
+
+```{r}
+as.character(x, keep_label = FALSE)
+```
+
+`as()` methods are always strict, i.e. label and class are removed:
+
+```{r}
+as(x, "character")
+```
+
+
+# Data-frame methods
+
+It is possible to assign multiple labels to the columns of a data frame by passing a named list or a named vector of
+key-value pairs. Note that mixing different types of labels (e.g. `character` and `expression` labels) is only possible
+if the right-hand side is a list.
+
+```{r}
+variable_label(npk) <- c(
+  N = "Nitrogen"
+  , P = "Phosphate"
+)
+variable_label(npk) <- list(
+  yield = expression(bar(Yield))
+)
+variable_label(npk)
+```
+

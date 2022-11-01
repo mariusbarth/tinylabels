@@ -26,7 +26,8 @@ test_that(
     x <- factor(letters[1:4], levels = letters[1:10])
     variable_label(x) <- "Test me!"
     y <- x[1:3]
-    z <- x[[2]]
+    z <- x[[2, keep_label = TRUE]]
+    zz <- x[[2]]
 
     expect_identical(
       object = y
@@ -45,6 +46,14 @@ test_that(
         , .Label = letters[1:10]
         , class = c("tiny_labelled", "factor")
         , label = "Test me!"
+      )
+    )
+    expect_identical(
+      object = zz
+      , expected = structure(
+        2L
+        , .Label = letters[1:10]
+        , class = "factor"
       )
     )
 

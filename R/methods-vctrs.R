@@ -15,7 +15,7 @@ vec_ptype2.tiny_labelled.tiny_labelled <- function(
       , "' was dropped and variable label '"
       , encodeString(variable_label(x))
       , "' was retained."
-      # , call. = FALSE
+      , call. = FALSE
     )
   }
   variable_label(z) <- variable_label(x)

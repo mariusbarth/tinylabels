@@ -8,4 +8,4 @@
 #' @docType package
 #' @name tinylabels
 
-NULL
+"_PACKAGE"

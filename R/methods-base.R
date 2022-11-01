@@ -12,9 +12,9 @@
 
 #' @export
 
-`[[.tiny_labelled` <- function(x, ..., exact = TRUE) {
-  y <- NextMethod("[[")
-  variable_label(y) <- variable_label(x)
+`[[.tiny_labelled` <- function(x, ..., exact = TRUE, keep_label = FALSE) {
+  y <- unlabel(x)[[..., exact = exact]]
+  if(isTRUE(keep_label)) variable_label(y) <- variable_label(x)
   y
 }
 

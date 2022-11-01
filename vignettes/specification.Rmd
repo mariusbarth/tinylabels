@@ -36,6 +36,18 @@ x[1:2] <- 5:6
 str(x)
 ```
 
+Using double brackets removes label and class `tiny_labelled`, similar to how names are handled:
+
+```{r}
+x[[1]]
+```
+
+It is still possible top keep variable label and class by setting `keep_label = TRUE`:
+
+```{r}
+x[[1, keep_label = TRUE]]
+```
+
 # Math, Ops, Summary, Complex
 
 If a vector is modified (e.g., via mathematical operations), label and `tiny_labelled` class are removed.

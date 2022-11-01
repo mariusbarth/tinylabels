@@ -6,3 +6,4 @@
 ^CRAN-RELEASE$
 ^README\.Rmd$
 ^check-reverse-dependencies.R$
+^CRAN-SUBMISSION$

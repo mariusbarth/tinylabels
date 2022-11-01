@@ -1,4 +1,12 @@
 
+# tinylabels 0.2.4
+
+- Added a method for `ggplot2::scale_type()` to avoid unnecessary warnings.
+- The double-bracket indexing method got an additional argument `keep_label` to 
+  specify whether the variable label should be retained.
+- Package documentation now uses the  `"_PACKAGE"` feature.
+
+
 # tinylabels 0.2.3
 
 - Added `as()` methods to support the S4 class system.

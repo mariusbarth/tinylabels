@@ -3,6 +3,7 @@
 \docType{package}
 \name{tinylabels}
 \alias{tinylabels}
+\alias{tinylabels-package}
 \title{Lightweight Variable Labels}
 \description{
 To learn more about tinylabels, take a look at the vignette: \code{browseVignettes(package = "tinylabels")}
@@ -12,3 +13,15 @@ To learn more about tinylabels, take a look at the vignette: \code{browseVignett
 Marius Barth (marius.barth.uni.koeln at gmail.com).
 }
 
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/mariusbarth/tinylabels}
+  \item Report bugs at \url{https://github.com/mariusbarth/tinylabels/issues}
+}
+
+}
+\author{
+\strong{Maintainer}: Marius Barth \email{marius.barth.uni.koeln@gmail.com} (\href{https://orcid.org/0000-0002-3421-6665}{ORCID})
+
+}

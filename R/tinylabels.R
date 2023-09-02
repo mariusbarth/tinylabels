@@ -5,7 +5,5 @@
 #' @section Maintainer:
 #'    Marius Barth (marius.barth.uni.koeln at gmail.com).
 #'
-#' @docType package
-#' @name tinylabels
-
+#' @keywords internal
 "_PACKAGE"

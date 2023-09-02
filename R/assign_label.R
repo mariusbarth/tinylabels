@@ -11,7 +11,7 @@ assign_label <- function(x, value, ...){
 
 #' @keywords internal
 
-assign_label.default <- function(x, value){
+assign_label.default <- function(x, value, ...){
 
   # First remove all nesting structures
   value <- unname(unlist(value, recursive = TRUE, use.names = FALSE))

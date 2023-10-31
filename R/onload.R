@@ -43,10 +43,6 @@
     s3_register("vctrs::vec_cast", "ordered.tiny_labelled")
   }
 
-  if(requireNamespace("ggplot2", quietly = TRUE)) {
-    s3_register("ggplot2::scale_type", "tiny_labelled")
-  }
-
   invisible()
 }
 

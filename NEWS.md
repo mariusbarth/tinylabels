@@ -1,4 +1,11 @@
 
+# Upcoming release
+
+- Removed `ggplot2::scale_type()` again, because **ggplot2** gained (with v3.4.2)
+  an additional `scale_type.integer()` method that already ensures proper method
+  dispatch, there. Also removed **ggplot2** from DESCRIPTION file.
+
+
 # tinylabels 0.2.4
 
 - Added a method for `ggplot2::scale_type()` to avoid unnecessary warnings.

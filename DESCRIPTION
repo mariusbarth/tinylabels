@@ -1,6 +1,6 @@
 Package: tinylabels
 Title: Lightweight Variable Labels
-Version: 0.2.4
+Version: 0.2.4.9000
 Date: 2023-09-02
 Authors@R: 
     person(given = "Marius",
@@ -17,7 +17,6 @@ Suggests:
   testthat,
   vctrs,
   dplyr,
-  ggplot2,
   knitr,
   rmarkdown
 License: MIT + file LICENSE

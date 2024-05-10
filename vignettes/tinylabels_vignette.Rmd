@@ -86,7 +86,7 @@ For columns that do not have a variable label, the corresponding list element is
 For data frames, the right-hand side of the assignment has to be a **named** list or vector.
 When trying to set columns that are not present in the data frame, a meaningful error  message is thrown:
 
-```{r error = TRUE}
+```{r error = TRUE, purl = FALSE}
 variable_label(npk) <- c(wrong_column_name = "A supposedly terrific label")
 ```
 

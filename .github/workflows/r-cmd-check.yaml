@@ -29,7 +29,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: name: Bootstrap
+      - name: Bootstrap
         run: |
           curl -OLs https://eddelbuettel.github.io/r-ci/run.sh && chmod 0755 run.sh
           ./run.sh bootstrap

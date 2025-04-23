@@ -1,6 +1,6 @@
 Package: tinylabels
 Title: Lightweight Variable Labels
-Version: 0.2.4.9000
+Version: 0.2.5
 Authors@R: 
     person(given = "Marius",
            family = "Barth",
